@@ -1,15 +1,82 @@
 {
   "type": "kendo-ui-mobile",
-  "isNew": true,
+  "views": [
+    {
+      "type": "view",
+      "components": [],
+      "name": "home",
+      "title": "Home",
+      "addToNavigation": true,
+      "icon": "home"
+    },
+    {
+      "type": "view",
+      "components": [
+        {
+          "type": "form",
+          "components": [
+            {
+              "type": "field",
+              "name": "dropdownlist",
+              "title": "Qual o maior fabricante de drivers do Mundo?",
+              "inputType": "dropdownlist"
+            },
+            {
+              "type": "field",
+              "name": "dropdownlist1",
+              "title": "Qual o melhor BRMS do mercado?",
+              "inputType": "dropdownlist"
+            }
+          ],
+          "name": "formViewModel",
+          "submitButton": "Enviar respostas"
+        }
+      ],
+      "name": "formView",
+      "title": "Quiz",
+      "addToNavigation": true,
+      "icon": "play"
+    },
+    {
+      "type": "view",
+      "components": [
+        {
+          "type": "authentication",
+          "name": "authenticationViewModel",
+          "dataProvider": "defaultProvider",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Login",
+          "signinRedirect": "home",
+          "enableRegistration": true,
+          "gotoRegisterLabel": "Não tem login? Registre-se aqui!",
+          "registerEmailLabel": "Email",
+          "registerPasswordLabel": "Senha",
+          "registerNameLabel": "Nome",
+          "registerLabel": "Gravar registro",
+          "registerRedirect": "home",
+          "gotoSigninLabel": "Ir para a tela de Login"
+        }
+      ],
+      "name": "authenticationView",
+      "title": "PROGRESS QUIZ",
+      "addToNavigation": false
+    }
+  ],
   "dataProviders": [
     {
       "type": "dataProvider",
-      "title": "DefaultProvider",
+      "everliveUrl": "//platform.telerik.com/bs-api/v1/",
       "name": "defaultProvider",
+      "title": "DefaultProvider",
       "source": "everlive",
-      "offlineStorage": true,
       "everliveKey": "7RdaQT8Mej77w11z",
-      "everliveUrl": ""
+      "offlineStorage": true
     }
-  ]
+  ],
+  "name": "kendoUiMobileApp",
+  "navigation": "tabstrip",
+  "view": "authenticationView",
+  "transition": "slide",
+  "skin": "native"
 }
