@@ -1,0 +1,23 @@
+<div data-role="view" data-title="Quiz" data-layout="main" data-model="app.quiz" data-show="app.quiz.onShow" data-after-show="app.quiz.afterShow">
+    <div id="quizModel" class="form-view">
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li>
+                    <label>Qual o maior fabricante de Drivers de Bancos de dados do mundo?
+                        <select data-bind="value: quizModel.fields.dropdownlist" data-role="dropdownlist">
+                            <option value="First Option">First Option</option>
+                            <option value="Second Option">Second Option</option>
+                            <option value="Third Option">Third Option</option>
+                        </select>
+                    </label>
+                </li>
+            </ul>
+
+            <div class="button-group">
+                <a class="primary" data-role="button" data-bind="events: { click: quizModel.submit }">Enviar respostas</a>
+            </div>
+        </form>
+    </div>
+    <!-- START_CUSTOM_CODE_quiz -->
+    <!-- END_CUSTOM_CODE_quiz -->
+</div>

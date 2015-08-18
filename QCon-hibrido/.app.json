@@ -5,37 +5,9 @@
       "type": "view",
       "components": [],
       "name": "home",
-      "title": "Home",
+      "title": "Demo BRMS",
       "addToNavigation": true,
       "icon": "home"
-    },
-    {
-      "type": "view",
-      "components": [
-        {
-          "type": "form",
-          "components": [
-            {
-              "type": "field",
-              "name": "dropdownlist",
-              "title": "Qual o maior fabricante de drivers do Mundo?",
-              "inputType": "dropdownlist"
-            },
-            {
-              "type": "field",
-              "name": "dropdownlist1",
-              "title": "Qual o melhor BRMS do mercado?",
-              "inputType": "dropdownlist"
-            }
-          ],
-          "name": "formViewModel",
-          "submitButton": "Enviar respostas"
-        }
-      ],
-      "name": "formView",
-      "title": "Quiz",
-      "addToNavigation": true,
-      "icon": "play"
     },
     {
       "type": "view",
@@ -61,6 +33,28 @@
       "name": "authenticationView",
       "title": "PROGRESS QUIZ",
       "addToNavigation": false
+    },
+    {
+      "type": "view",
+      "components": [
+        {
+          "type": "form",
+          "components": [
+            {
+              "type": "field",
+              "name": "dropdownlist",
+              "title": "Qual o maior fabricante de Drivers de Bancos de dados do mundo?",
+              "inputType": "dropdownlist"
+            }
+          ],
+          "name": "quizModel",
+          "submitButton": "Enviar respostas"
+        }
+      ],
+      "name": "quiz",
+      "title": "Quiz",
+      "addToNavigation": true,
+      "icon": "favorites"
     }
   ],
   "dataProviders": [
