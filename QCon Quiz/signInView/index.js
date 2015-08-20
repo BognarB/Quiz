@@ -12,8 +12,6 @@ app.signInView = kendo.observable({
         },
         signinInit =
         function () {
-//            var aux = kendo.mobile.Application();
-//            aux.hideLoading();
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signin-view').hide().siblings().show();
             } else {
@@ -29,8 +27,6 @@ app.signInView = kendo.observable({
             username: '',
             password: '',
             signin: function () {
- //               var aux = kendo.mobile.Application();
-   //             aux.showLoading();
                 provider.Users.login(signInViewModel.username, signInViewModel.password,
                     function (data) {
                         if (data && data.result) {
