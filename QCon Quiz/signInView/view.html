@@ -1,18 +1,18 @@
 <div data-role="view" data-title="Sign In" data-layout="main" data-model="app.signInView" data-show="app.signInView.onShow">
     <div class="signin-view">
-        <div class="app-icon">
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjUwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48ZGVmcy8+PHJlY3Qgd2lkdGg9IjI1MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0FBQSIvPjxnPjx0ZXh0IHg9Ijg2LjMyODEyNSIgeT0iNDAiIHN0eWxlPSJmaWxsOiNGRkY7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTJwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj5BUFAgSUNPTjwvdGV4dD48L2c+PC9zdmc+">
+        <div class="app-icon" style="background-color: #ff4e00;">
+            <img src="logo.png" width="70%">
         </div>
         <form>
             <ul data-role="listview" data-style="inset">
                 <li>
                     <label>Username
-                        <input type="text" data-bind="value: signInViewModel.username" required autofocus>
+                        <input type="text" data-bind="value: signInViewModel.username" required autofocus style="border: 1px solid black;">
                     </label>
                 </li>
                 <li>
                     <label>Password
-                        <input type="password" data-bind="value: signInViewModel.password" required>
+                        <input type="password" data-bind="value: signInViewModel.password" required style="border: 1px solid black;">
                     </label>
                 </li>
             </ul>
@@ -20,12 +20,11 @@
             <div class="button-group">
                 <a data-role="button" class="km-state-active" data-bind="events: { click: signInViewModel.signin }">Sign In</a>
             </div>
+
+            <div class="button-group">
+                <a data-role="button" class="km-state-active" data-bind="events: { click: registerViewModel.register }">Não tem login? Registre-se!</a>
+            </div>
         </form>
-
-        <div class="block">
-            <a href="#registerView/view.html">Register</a>
-        </div>
-
     </div>
     <div align="center" style="display:none;">
         You are currently offline. Before using this app in offline mode you must initialize it while you are online

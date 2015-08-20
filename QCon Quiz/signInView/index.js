@@ -10,6 +10,11 @@ app.signInView = kendo.observable({
             app.user = data.result;
             app.mobileApp.navigate('dataListView/view.html');
         },
+        registerSuccess =
+        function(data) {
+            app.user = data.result;
+            app.mobileApp.navigate('registerView/view.html');
+        },
         signinInit =
         function() {
             if (provider.setup.offlineStorage && !app.isOnline()) {
