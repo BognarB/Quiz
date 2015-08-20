@@ -1,34 +1,35 @@
 'use strict';
 
 app.signInView = kendo.observable({
-    onShow: function() {}
+    onShow: function () {}
 });
-(function(parent) {
+(function (parent) {
     var provider = app.data.defaultProvider,
         signinSuccess =
-        function(data) {
+        function (data) {
             app.user = data.result;
             app.mobileApp.navigate('dataListView/view.html');
         },
-        registerSuccess =
-        function(data) {
-            app.user = data.result;
-            app.mobileApp.navigate('registerView/view.html');
-        },
         signinInit =
-        function() {
+        function () {
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signin-view').hide().siblings().show();
             } else {
                 $('.signin-view').show().siblings().hide();
             }
         },
+        registerViewModel = kendo.observable({
+            register: function () {
+                app.user = data.result;
+                app.mobileApp.navigate('registerView/view.html');
+            }
+        }),
         signInViewModel = kendo.observable({
             username: '',
             password: '',
-            signin: function() {
+            signin: function () {
                 provider.Users.login(signInViewModel.username, signInViewModel.password,
-                    function(data) {
+                    function (data) {
                         if (data && data.result) {
                             signinSuccess(data);
                         } else {
@@ -40,9 +41,9 @@ app.signInView = kendo.observable({
         });
 
     parent.set('signInViewModel', signInViewModel);
-    parent.set('onShow', function() {
+    parent.set('onShow', function () {
         provider.Users.currentUser().then(
-            function(data) {
+            function (data) {
                 if (data && data.result) {
                     signinSuccess(data);
                 } else {
