@@ -12,7 +12,8 @@ app.registerView = kendo.observable({
         },
         signupInit =
         function () {
-            nApp.pane.loader.hide();
+//            var aux = kendo.mobile.Application();
+  //          aux.hideLoading();
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signup-view').hide().siblings().show();
             } else {
@@ -29,7 +30,8 @@ app.registerView = kendo.observable({
             password: '',
             email: '',
             register: function () {
-                nApp.pane.loader.show();
+    //            var aux = kendo.mobile.Application();
+      //          aux.showLoading();
                 var attrs = {
                     Email: registerViewModel.email
                 };
