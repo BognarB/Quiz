@@ -1,0 +1,34 @@
+<div data-role="view" data-title="Register" data-layout="main" data-model="app.registerView" data-show="app.registerView.onShow">
+    <div id="registerViewModel" class="signup-view">
+        <form>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label>Email
+                        <input type="email" data-bind="value: registerViewModel.email" required>
+                    </label>
+                </li>
+                <li>
+                    <label>Name
+                        <input type="text" data-bind="value: registerViewModel.username" required>
+                    </label>
+                </li>
+                <li>
+                    <label>Password
+                        <input type="password" data-bind="value: registerViewModel.password" required>
+                    </label>
+                </li>
+            </ul>
+            <div class="button-group">
+                <a class="km-state-active" data-role="button" data-bind="events: { click: registerViewModel.register }">Register</a>
+            </div>
+        </form>
+
+        <div class="block">
+            <a href="#signInView/view.html">Sign In</a>
+        </div>
+
+    </div>
+    <div align="center" style="display:none;">
+        You are currently offline. Before using this app in offline mode you must initialize it while you are online
+    </div>
+</div>
