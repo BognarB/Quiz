@@ -1,11 +1,138 @@
-<div data-role="view" data-title="Data List" data-layout="main" data-model="app.dataListView" data-show="app.dataListView.onShow">
-
-    <ul data-role="listview" data-style="inset" data-template="dataListViewModelTemplate" data-bind="{ source: dataListViewModel.dataSource, events: {click: dataListViewModel.itemClick}}" data-pull-to-refresh="true" data-endless-scroll="false">
-    </ul>
-    <script type="text/x-kendo-template" id="dataListViewModelTemplate">
-        <div class="image-with-text">
-            <h3>#: data.FirstName #</h3>
-            <p>#: data.LastName #</p>
-        </div>
-    </script>
+<div data-role="view" data-title="Quiz" data-layout="main" data-model="app.dataListView" data-show="app.dataListView.onShow" data-after-show="app.dataListView.afterShow">
+    <div id="dataListViewModel" class="form-view">
+        <form>
+            <label>Qual empresa fabrica 60% dos drivers de conexão disponiveis no mercado?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q1" data-role="Q1">
+                                <option value="1">PROGRESS</option>
+                                <option value="2">Banco Nacional</option>
+                                <option value="3">Mappin</option>
+                                <option value="4">Arapuã</option>
+                                <option value="5">Kolynos</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>Qual banco de dados possui clientes com mais de 30 anos uptime?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q2" data-role="Q2">
+                                <option value="1">VARIG</option>
+                                <option value="2">Yopa</option>
+                                <option value="3">Mesbla</option>
+                                <option value="4">VASP</option>
+                                <option value="5">OpenEdge PROGRESS</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>Qual ferramenta PROGRESS serve para construir Apps Mobile?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q3" data-role="Q3">
+                                <option value="1">OpenEdge</option>
+                                <option value="2">Sitefinity</option>
+                                <option value="3">PRO 2 Tools</option>
+                                <option value="4">Telerik Platform</option>
+                                <option value="5">Corticon</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>6 cães, caçam 6 galinhas em 6 minutos. Quantos cães são necessários para caçar 60 galinhas em 60 minutos?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q4" data-role="Q4">
+                                <option value="1">6</option>
+                                <option value="2">10</option>
+                                <option value="3">16</option>
+                                <option value="4">26</option>
+                                <option value="5">60</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>Qual característica da linguagem JavaScript é ligada a forma de processamento?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q5" data-role="Q5">
+                                <option value="1">Linguagem Script</option>
+                                <option value="2">Orientado a Objeto</option>
+                                <option value="3">Não tipado</option>
+                                <option value="4">No-blocking IO</option>
+                                <option value="5">Server-side / Client-Side</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>Qual a principal característica do uso da tecnologia Docker?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta: É um...
+                            <select data-bind="value: dataListViewModel.fields.Q6" data-role="Q6">
+                                <option value="1">Gerenciador de dispositivos móveis</option>
+                                <option value="2">Publicador de Sites PHP</option>
+                                <option value="3">IDE para JavaScript</option>
+                                <option value="4">Sistema operacional baseado em serviço</option>
+                                <option value="5">É um software container</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>O que gerencia um BRMS como o Corticon?
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q7" data-role="Q7">
+                                <option value="1">Serviços</option>
+                                <option value="2">Regras de Negócio</option>
+                                <option value="3">Fluxos de Trabalho</option>
+                                <option value="4">Apps</option>
+                                <option value="5">Dispositivos Mobile</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <br/>
+            <label>Se 5 = 25, 10 = 30, 15 = 35, 20 = 40, 25 = ???
+                <ul class="form-content" data-role="listview" data-style="inset">
+                    <li>
+                        <label>Resposta:
+                            <select data-bind="value: dataListViewModel.fields.Q8" data-role="Q8">
+                                <option value="1">5</option>
+                                <option value="2">Regras de Negócio</option>
+                                <option value="3">Fluxos de Trabalho</option>
+                                <option value="4">Apps</option>
+                                <option value="5">Dispositivos Mobile</option>
+                            </select>
+                        </label>
+                    </li>
+                </ul>
+            </label>
+            <div class="button-group">
+                <a class="primary" data-role="button" data-bind="events: { click: dataListViewModel.submit }">Enviar respostas</a>
+            </div>
+        </form>
+    </div>
+    <!-- START_CUSTOM_CODE_dataListView -->
+    <!-- END_CUSTOM_CODE_dataListView -->
 </div>
