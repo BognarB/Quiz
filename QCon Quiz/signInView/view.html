@@ -6,19 +6,19 @@
         <form>
             <ul data-role="listview" data-style="inset">
                 <li>
-                    <label>Username
+                    <label>Nome
                         <input type="text" data-bind="value: signInViewModel.username" required autofocus style="border: 1px solid black;">
                     </label>
                 </li>
                 <li>
-                    <label>Password
+                    <label>Senha
                         <input type="password" data-bind="value: signInViewModel.password" required style="border: 1px solid black;">
                     </label>
                 </li>
             </ul>
 
             <div class="button-group">
-                <a data-role="button" class="km-state-active" data-bind="events: { click: signInViewModel.signin }">Sign In</a>
+                <a data-role="button" class="km-state-active" data-bind="events: { click: signInViewModel.signin }">Login!</a>
             </div>
 
             <div class="button-group">

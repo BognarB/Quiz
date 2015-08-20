@@ -8,12 +8,12 @@
                     </label>
                 </li>
                 <li>
-                    <label>Name
+                    <label>Nome (ex: nome.sobrenome.empresa)
                         <input type="text" data-bind="value: registerViewModel.username" required style="border: 1px solid black;">
                     </label>
                 </li>
                 <li>
-                    <label>Password
+                    <label>Senha
                         <input type="password" data-bind="value: registerViewModel.password" required style="border: 1px solid black;">
                     </label>
                 </li>
@@ -25,11 +25,6 @@
                 <a class="km-state-active" data-role="button" data-bind="events: { click: signinViewModel.signin }">Tela de Login</a>
             </div>
         </form>
-
-        <div class="block">
-            <a href="#signInView/view.html">Sign In</a>
-        </div>
-
     </div>
     <div align="center" style="display:none;">
         You are currently offline. Before using this app in offline mode you must initialize it while you are online
