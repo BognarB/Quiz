@@ -1,5 +1,6 @@
 'use strict';
 
+var nApp = new kendo.mobile.Application();
 app.registerView = kendo.observable({
     onShow: function () {}
 });
@@ -12,6 +13,7 @@ app.registerView = kendo.observable({
         },
         signupInit =
         function () {
+            nApp.pane.loader.hide();
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signup-view').hide().siblings().show();
             } else {
@@ -28,10 +30,10 @@ app.registerView = kendo.observable({
             password: '',
             email: '',
             register: function () {
+                nApp.pane.loader.show();
                 var attrs = {
                     Email: registerViewModel.email
                 };
-
                 provider.Users.register(registerViewModel.username, registerViewModel.password, attrs,
                     function (data) {
                         if (data && data.result) {

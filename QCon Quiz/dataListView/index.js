@@ -1,7 +1,9 @@
 'use strict';
 
 app.dataListView = kendo.observable({
-    onShow: function () {},
+    onShow: function () {
+        app.pane.loader.hide();
+    },
     afterShow: function () {}
 });
 
