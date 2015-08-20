@@ -1,6 +1,5 @@
 'use strict';
 
-var nApp = new kendo.mobile.Application();
 app.registerView = kendo.observable({
     onShow: function () {}
 });
