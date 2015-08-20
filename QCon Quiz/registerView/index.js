@@ -12,8 +12,6 @@ app.registerView = kendo.observable({
         },
         signupInit =
         function () {
-//            var aux = kendo.mobile.Application();
-  //          aux.hideLoading();
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signup-view').hide().siblings().show();
             } else {
@@ -26,16 +24,17 @@ app.registerView = kendo.observable({
             }
         }),
         registerViewModel = kendo.observable({
-            username: '',
+            displayName: '',
+            company: '',
             password: '',
             email: '',
             register: function () {
-    //            var aux = kendo.mobile.Application();
-      //          aux.showLoading();
                 var attrs = {
+                    DisplayName: registerViewModel.displayName,
+                    Company: registerViewModel.company,
                     Email: registerViewModel.email
                 };
-                provider.Users.register(registerViewModel.username, registerViewModel.password, attrs,
+                provider.Users.register(registerViewModel.email, registerViewModel.password, attrs,
                     function (data) {
                         if (data && data.result) {
                             signupSuccess(data);
