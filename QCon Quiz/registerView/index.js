@@ -29,7 +29,6 @@ app.registerView = kendo.observable({
             password: '',
             email: '',
             register: function () {
-                window.showLoading;
                 var attrs = {
                     DisplayName: registerViewModel.displayName,
                     Company: registerViewModel.company,
