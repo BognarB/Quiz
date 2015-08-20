@@ -20,7 +20,6 @@ app.signInView = kendo.observable({
         },
         registerViewModel = kendo.observable({
             register: function () {
-                app.user = data.result;
                 app.mobileApp.navigate('registerView/view.html');
             }
         }),
@@ -41,6 +40,7 @@ app.signInView = kendo.observable({
         });
 
     parent.set('signInViewModel', signInViewModel);
+    parent.set('registerViewModel', registerViewModel);
     parent.set('onShow', function () {
         provider.Users.currentUser().then(
             function (data) {
