@@ -1,18 +1,18 @@
 'use strict';
 
 app.authenticationView = kendo.observable({
-    onShow: function() {},
-    afterShow: function() {}
+    onShow: function () {},
+    afterShow: function () {}
 });
 
 // START_CUSTOM_CODE_authenticationView
 // END_CUSTOM_CODE_authenticationView
-(function(parent) {
+(function (parent) {
     var provider = app.data.defaultProvider,
         mode = 'signin',
         registerRedirect = 'home',
         signinRedirect = 'home',
-        init = function(error) {
+        init = function (error) {
             if (error) {
                 if (error.message) {
                     alert(error.message);
@@ -29,13 +29,13 @@ app.authenticationView = kendo.observable({
                 $(activeView).show().siblings().hide();
             }
         },
-        successHandler = function(data) {
+        successHandler = function (data) {
             var redirect = mode === 'signin' ? signinRedirect : registerRedirect;
 
             if (data && data.result) {
                 app.user = data.result;
 
-                setTimeout(function() {
+                setTimeout(function () {
                     app.mobileApp.navigate('components/' + redirect + '/view.html');
                 }, 0);
             } else {
@@ -46,7 +46,7 @@ app.authenticationView = kendo.observable({
             displayName: '',
             email: '',
             password: '',
-            validateData: function(data) {
+            validateData: function (data) {
                 if (!data.email) {
                     alert('Missing email');
                     return false;
@@ -59,7 +59,7 @@ app.authenticationView = kendo.observable({
 
                 return true;
             },
-            signin: function() {
+            signin: function () {
                 var model = authenticationViewModel,
                     email = model.email.toLowerCase(),
                     password = model.password;
@@ -70,14 +70,16 @@ app.authenticationView = kendo.observable({
 
                 provider.Users.login(email, password, successHandler, init);
             },
-            register: function() {
+            register: function () {
                 var model = authenticationViewModel,
                     email = model.email.toLowerCase(),
                     password = model.password,
                     displayName = model.displayName,
+                    company = model.Company,
                     attrs = {
                         Email: email,
-                        DisplayName: displayName
+                        DisplayName: displayName,
+                        Company: company
                     };
 
                 if (!model.validateData(model)) {
@@ -86,14 +88,14 @@ app.authenticationView = kendo.observable({
 
                 provider.Users.register(email, password, attrs, successHandler, init);
             },
-            toggleView: function() {
+            toggleView: function () {
                 mode = mode === 'signin' ? 'register' : 'signin';
                 init();
             }
         });
 
     parent.set('authenticationViewModel', authenticationViewModel);
-    parent.set('afterShow', function() {
+    parent.set('afterShow', function () {
         provider.Users.currentUser().then(successHandler, init);
     });
 })(app.authenticationView);

@@ -26,6 +26,16 @@
         <form>
             <ul data-role="listview" data-style="inset">
                 <li>
+                    <label>Nome
+                        <input type="text" data-bind="value: authenticationViewModel.displayName">
+                    </label>
+                </li>
+                <li>
+                    <label>Empresa
+                        <input type="text" data-bind="value: authenticationViewModel.Company">
+                    </label>
+                </li>
+                <li>
                     <label>Email
                         <input type="email" data-bind="value: authenticationViewModel.email" required>
                     </label>
@@ -33,11 +43,6 @@
                 <li>
                     <label>Senha
                         <input type="password" data-bind="value: authenticationViewModel.password">
-                    </label>
-                </li>
-                <li>
-                    <label>Nome
-                        <input type="text" data-bind="value: authenticationViewModel.displayName">
                     </label>
                 </li>
             </ul>
