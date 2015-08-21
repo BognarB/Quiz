@@ -1,8 +1,12 @@
 'use strict';
 
 app.dataListView = kendo.observable({
-    onShow: function () {},
-    afterShow: function () {}
+    onShow: function () {
+        app.mobileApp.pane.loader.show();
+    },
+    afterShow: function () {
+        app.mobileApp.pane.loader.hide();
+    }
 });
 
 var provider = app.data.defaultProvider;

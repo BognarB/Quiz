@@ -1,7 +1,12 @@
 'use strict';
 
 app.registerView = kendo.observable({
-    onShow: function () {}
+    onShow: function () {
+        app.mobileApp.pane.loader.show();
+    },
+    afterShow: function () {
+        app.mobileApp.pane.loader.hide();
+    }
 });
 (function (parent) {
     var provider = app.data.defaultProvider,
