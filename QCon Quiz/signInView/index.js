@@ -32,10 +32,14 @@ app.signInView = kendo.observable({
                         if (data && data.result) {
                             signinSuccess(data);
                         } else {
+
                             signinInit();
                         }
                     },
-                    signinInit);
+                    function (err) {
+                        alert('Não foi possivel conenctar!', '');
+                        signinInit();
+                    })
             }
         });
 
