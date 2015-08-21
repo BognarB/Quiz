@@ -94,7 +94,7 @@ var provider = app.data.defaultProvider;
                     	quiz.add(new userModel(dataListViewModel.user));
                     	quiz.sync();
                     } else {
-                        alert('Você já enviou suas questões!');
+                         notification.show("Você já enviou suas questões!");
                     }
                     
                     finishQuizInit();
@@ -102,7 +102,7 @@ var provider = app.data.defaultProvider;
 				
                 provider.Users.currentUser()
                     .then(sendQuestions, function (err) {
-                        alert(err);
+                        notification.show(err.message);
                     });
             }
         });

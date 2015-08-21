@@ -47,7 +47,10 @@ app.registerView = kendo.observable({
                             signupSuccess(data);
                         }
                     },
-                    signupInit
+                    function (err) {
+                        notification.show(err.message);
+                        signupInit();
+                    }
                 );
             }
         });

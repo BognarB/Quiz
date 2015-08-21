@@ -18,7 +18,7 @@ app.signInView = kendo.observable({
         signinInit =
         function () {
             app.mobileApp.pane.loader.hide();
-            
+
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signin-view').hide().siblings().show();
             } else {
@@ -41,10 +41,12 @@ app.signInView = kendo.observable({
                         if (data && data.result) {
                             signinSuccess(data);
                         } else {
+
                             signinInit();
                         }
                     },
                     function (err) {
+                        notification.show(err.message);
                         signinInit();
                     })
             }

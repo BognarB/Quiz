@@ -1,6 +1,6 @@
 <div data-role="view" data-title="Register" data-layout="main" data-model="app.registerView" data-show="app.registerView.onShow">
     <div id="registerViewModel" class="signup-view">
-        <form>
+        <form id='registerForm'>
             <ul data-role="listview" data-style="inset">
                 <li>
                     <label>Email
@@ -35,3 +35,8 @@
         You are currently offline. Before using this app in offline mode you must initialize it while you are online
     </div>
 </div>
+<!--<script>
+(function(){
+ 	$("#registerForm").kendoValidator();
+ })();
+</script>-->
