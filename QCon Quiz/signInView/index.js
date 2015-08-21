@@ -12,12 +12,13 @@ app.signInView = kendo.observable({
     var provider = app.data.defaultProvider,
         signinSuccess =
         function (data) {
-            if(!app.user) app.user = data.result;
+            if (!app.user) app.user = data.result;
             app.mobileApp.navigate('dataListView/view.html');
         },
         signinInit =
         function () {
             app.mobileApp.pane.loader.hide();
+            
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signin-view').hide().siblings().show();
             } else {
@@ -44,7 +45,6 @@ app.signInView = kendo.observable({
                         }
                     },
                     function (err) {
-                        alert('Não foi possivel conenctar!', '');
                         signinInit();
                     })
             }
@@ -53,16 +53,6 @@ app.signInView = kendo.observable({
     parent.set('signInViewModel', signInViewModel);
     parent.set('registerViewModel', registerViewModel);
     parent.set('onShow', function () {
-       	signinInit();
-        /* provider.Users.currentUser().then(
-            function (data) {
-                if (data && data.result) {
-                    signinSuccess(data);
-                } else {
-                    signinInit();
-                }
-            },
-            signinInit
-        );*/
+        signinInit();
     });
 })(app.signInView);
