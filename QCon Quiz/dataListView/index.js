@@ -10,96 +10,101 @@ app.dataListView = kendo.observable({
 });
 
 var provider = app.data.defaultProvider;
-(function (parent) {
-    var dataListViewModel = kendo.observable({
-        fields: {
-            Q1: '',
-            Q2: '',
-            Q3: '',
-            Q4: '',
-            Q5: '',
-            Q6: '',
-            Q7: '',
-            Q8: '',
-        },
-        submit: function () {
-            var userModel = new kendo.data.Model.define({
-                fields: {
-                    "FirstName": {
-                        type: 'string'
-                    },
-                    "LastName": {
-                        type: 'string'
-                    },
-                    "Company": {
-                        type: 'string'
-                    },
-                    "Q1": {
-                        type: 'string'
-                    },
-                    "Q2": {
-                        type: 'string'
-                    },
-                    "Q3": {
-                        type: 'string'
-                    },
-                    "Q4": {
-                        type: 'string'
-                    },
-                    "Q5": {
-                        type: 'string'
-                    },
-                    "Q6": {
-                        type: 'string'
-                    },
-                    "Q7": {
-                        type: 'string'
-                    },
-                    "Q8": {
-                        type: 'string'
-                    }
+(function (parent, user) {
+    var userModel = new kendo.data.Model.define({
+            fields: {
+                "FirstName": {
+                    type: 'string'
+                },
+                "LastName": {
+                    type: 'string'
+                },
+                "Company": {
+                    type: 'string'
+                },
+                "Q1": {
+                    type: 'string'
+                },
+                "Q2": {
+                    type: 'string'
+                },
+                "Q3": {
+                    type: 'string'
+                },
+                "Q4": {
+                    type: 'string'
+                },
+                "Q5": {
+                    type: 'string'
+                },
+                "Q6": {
+                    type: 'string'
+                },
+                "Q7": {
+                    type: 'string'
+                },
+                "Q8": {
+                    type: 'string'
                 }
-            });
-            var url = "http://qcondemo-50158.onmodulus.net";
-            var quiz = new kendo.data.DataSource({
-                transport: {
-                    create: {
-                        url: url + '/user',
-                        type: 'POST'
-                    }
-                },
-                schema: {
-                    model: userModel,
-                },
-            });
-
-            var user
-            var success = function (data) {
-                user = {
-                    FirstName: data.result.Username,
-                    Email: data.result.Email,
-                    Q1: dataListViewModel.fields.Q1,
-                    Q2: dataListViewModel.fields.Q2,
-                    Q3: dataListViewModel.fields.Q3,
-                    Q4: dataListViewModel.fields.Q4,
-                    Q5: dataListViewModel.fields.Q5,
-                    Q6: dataListViewModel.fields.Q6,
-                    Q7: dataListViewModel.fields.Q7,
-                    Q8: dataListViewModel.fields.Q8
-                };
-                console.log(user);
-                quiz.add(new userModel(user));
-                quiz.sync();
             }
-
-            provider.Users.currentUser()
-                .then(success, function (err) {
-                    alert(err);
+        }),
+        finishQuizInit = function(){
+            app.mobileApp.pane.loader.hide();
+            app.mobileApp.navigate('finishQuiz/view.html');
+        },
+        dataListViewModel = kendo.observable({
+            user: {
+                FirstName: '',
+                Email: '',
+                Company: '',
+                Q1: '1',
+                Q2: '5',
+                Q3: '4',
+                Q4: '1',
+                Q5: '5',
+                Q6: '5',
+                Q7: '2',
+                Q8: '1',
+            },
+            submit: function () {
+				app.mobileApp.pane.loader.show();
+                
+                var url = "http://qcondemo-50158.onmodulus.net";
+                var quiz = new kendo.data.DataSource({
+                    transport: {
+                        create: {
+                            url: url + '/user',
+                            type: 'POST'
+                        }
+                    },
+                    schema: {
+                        model: userModel,
+                    },
                 });
 
-
-        }
-
-    });
+                var sendQuestions = function (data) {
+                    
+                    
+                    dataListViewModel.user.FirstName = data.result.DisplayName;
+                    dataListViewModel.user.Email = data.result.Email;
+                    dataListViewModel.user.Company = data.result.Company;
+                    console.log(app.user);
+                    if(!app.user.sent){
+                    	app.user.sent = true;
+                    	quiz.add(new userModel(dataListViewModel.user));
+                    	quiz.sync();
+                    } else {
+                        alert('Você já enviou suas questões!');
+                    }
+                    
+                    finishQuizInit();
+                }
+				
+                provider.Users.currentUser()
+                    .then(sendQuestions, function (err) {
+                        alert(err);
+                    });
+            }
+        });
     parent.set('dataListViewModel', dataListViewModel);
-})(app.dataListView);
+})(app.dataListView, app.user);

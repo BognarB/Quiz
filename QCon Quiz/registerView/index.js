@@ -13,7 +13,6 @@ app.registerView = kendo.observable({
         signupSuccess =
         function (data) {
             app.user = data.result;
-            app.mobileApp.pane.loader.hide();
             app.mobileApp.navigate('signInView/view.html');
         },
         signupInit =
