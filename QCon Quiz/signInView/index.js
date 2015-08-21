@@ -32,7 +32,6 @@ app.signInView = kendo.observable({
                         if (data && data.result) {
                             signinSuccess(data);
                         } else {
-
                             signinInit();
                         }
                     },
