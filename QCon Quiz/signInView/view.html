@@ -1,0 +1,32 @@
+<div data-role="view" data-title="Login" data-layout="main" data-model="app.signInView" data-show="app.signInView.onShow">
+    <div class="signin-view">
+        <div class="app-icon" style="background-color: #ff4e00;">
+            <img src="logo.png" width="70%">
+        </div>
+        <form>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label>E-mail
+                        <input type="text" data-bind="value: signInViewModel.username" required autofocus style="border: 1px solid black;">
+                    </label>
+                </li>
+                <li>
+                    <label>Senha
+                        <input type="password" data-bind="value: signInViewModel.password" required style="border: 1px solid black;">
+                    </label>
+                </li>
+            </ul>
+
+            <div class="button-group">
+                <a data-role="button" class="km-state-active" data-bind="events: { click: signInViewModel.signin }">Login!</a>
+            </div>
+
+            <div class="button-group">
+                <a data-role="button" class="km-state-active" data-bind="events: { click: registerViewModel.register }">Não tem login? Registre-se!</a>
+            </div>
+        </form>
+    </div>
+    <div align="center" style="display:none;">
+        You are currently offline. Before using this app in offline mode you must initialize it while you are online
+    </div>
+</div>
