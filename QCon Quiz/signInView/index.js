@@ -13,6 +13,7 @@ app.signInView = kendo.observable({
         signinSuccess =
         function (data) {
             app.user = data.result;
+            app.mobileApp.pane.loader.hide();
             app.mobileApp.navigate('dataListView/view.html');
         },
         signinInit =
@@ -25,6 +26,7 @@ app.signInView = kendo.observable({
         },
         registerViewModel = kendo.observable({
             register: function () {
+                app.mobileApp.pane.loader.show();
                 app.mobileApp.navigate('registerView/view.html');
             }
         }),
@@ -32,6 +34,7 @@ app.signInView = kendo.observable({
             username: '',
             password: '',
             signin: function () {
+                app.mobileApp.pane.loader.show();
                 provider.Users.login(signInViewModel.username, signInViewModel.password,
                     function (data) {
                         if (data && data.result) {

@@ -13,10 +13,12 @@ app.registerView = kendo.observable({
         signupSuccess =
         function (data) {
             app.user = data.result;
+            app.mobileApp.pane.loader.hide();
             app.mobileApp.navigate('signInView/view.html');
         },
         signupInit =
         function () {
+            app.mobileApp.pane.loader.hide();
             if (provider.setup.offlineStorage && !app.isOnline()) {
                 $('.signup-view').hide().siblings().show();
             } else {
@@ -39,6 +41,7 @@ app.registerView = kendo.observable({
                     Company: registerViewModel.company,
                     Email: registerViewModel.email
                 };
+                app.mobileApp.pane.loader.show();
                 provider.Users.register(registerViewModel.email, registerViewModel.password, attrs,
                     function (data) {
                         if (data && data.result) {
