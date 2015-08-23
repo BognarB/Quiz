@@ -1,11 +1,11 @@
 {
-  "ProjectName": "QCon Quiz",
+  "ProjectName": "Progress Quiz",
   "ProjectGuid": "c367f678-0aa9-4b1f-838f-9b3eb7989bbf",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.QConQuiz",
-  "DisplayName": "QCon Quiz",
-  "Author": "",
-  "Description": "QCon Quiz",
+  "AppIdentifier": "com.telerik.ProgressQuiz",
+  "DisplayName": "Progres Quiz",
+  "Author": "PROGRES",
+  "Description": "Progress Quiz",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -22,11 +22,11 @@
     "Portrait",
     "Landscape"
   ],
-  "AndroidHardwareAcceleration": "false",
+  "AndroidHardwareAcceleration": "True",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
-  "WP8TileTitle": "",
-  "WP8Publisher": "",
+  "WP8TileTitle": "Progress Quiz",
+  "WP8Publisher": "PROGRESS",
   "WP8Capabilities": [
     "ID_CAP_NETWORKING",
     "ID_CAP_WEBBROWSERCOMPONENT"
@@ -35,7 +35,7 @@
   "WP8PublisherID": "{54cff397-2ac7-4b66-b8cf-07cabb73b66c}",
   "WP8ProductID": "{899fd093-8a7a-4866-93ed-ceae87765c46}",
   "WPSdk": "8.0",
-  "WP8PackageIdentityName": "1234Telerik.QConQuiz",
+  "WP8PackageIdentityName": "1234Telerik.ProgressQuiz",
   "WP8WindowsPublisherName": "CN=Telerik",
   "WP8SupportedResolutions": [
     "ID_RESOLUTION_WVGA",
