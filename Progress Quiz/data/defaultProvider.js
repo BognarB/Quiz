@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function() {
     app.data.defaultProvider = new Everlive({
         offlineStorage: true,
         apiKey: '7RdaQT8Mej77w11z',
@@ -8,22 +8,12 @@
         scheme: 'https'
     });
 
-
-    app.config = {};
-    app.data.defaultProvider.data('configuration').get()
-        .then(function (data) {
-            data.result.forEach(function (config) {
-                app.config[config.name] = config.value;
-            });
-
-            console.log(app.config);
-        });
-    document.addEventListener("online", function () {
+    document.addEventListener("online", function() {
         app.data.defaultProvider.offline(false);
         app.data.defaultProvider.sync();
     });
 
-    document.addEventListener("offline", function () {
+    document.addEventListener("offline", function() {
         app.data.defaultProvider.offline(true);
     });
 

@@ -69,7 +69,7 @@ var provider = app.data.defaultProvider;
             submit: function () {
 				app.mobileApp.pane.loader.show();
                 
-                var url = app.config.modulus;
+                var url = "http://qcondemo-50158.onmodulus.net";
                 var quiz = new kendo.data.DataSource({
                     transport: {
                         create: {
@@ -88,7 +88,7 @@ var provider = app.data.defaultProvider;
                     dataListViewModel.user.FirstName = data.result.DisplayName;
                     dataListViewModel.user.Email = data.result.Email;
                     dataListViewModel.user.Company = data.result.Company;
-                  
+                    console.log(app.user);
                     if(!app.user.sent){
                     	app.user.sent = true;
                     	quiz.add(new userModel(dataListViewModel.user));
