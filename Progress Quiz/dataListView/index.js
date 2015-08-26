@@ -69,7 +69,8 @@ var provider = app.data.defaultProvider;
             submit: function () {
 				app.mobileApp.pane.loader.show();
                 
-                var url = app.config.serverURL || 'localhost';
+                var url = app.config.serverURL || '';
+                
                 var quiz = new kendo.data.DataSource({
                     transport: {
                         create: {
