@@ -6,8 +6,8 @@
   "DisplayName": "Progres Quiz",
   "Author": "PROGRES",
   "Description": "Progress Quiz",
-  "BundleVersion": "1.0",
-  "AndroidVersionCode": "1",
+  "BundleVersion": "1.0.1",
+  "AndroidVersionCode": "2",
   "iOSDeviceFamily": [
     "1",
     "2"
