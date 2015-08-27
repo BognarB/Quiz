@@ -43,7 +43,6 @@
         (function (g) {
             var productId = "6d7c5aabf9f94236b1a35c820835c06e"; // App unique product key
             // Make analytics available via the window.analytics variable
-            window.analytics.Start()
             var analytics = g.analytics = g.analytics || {};
             analytics.Start = function () {
                 // Handy shortcuts to the analytics api
@@ -73,6 +72,7 @@
                 return window.plugins.EqatecAnalytics.Monitor;
             };
         })(window);
+        window.analytics.Start();
     </script>
 </body>
 
